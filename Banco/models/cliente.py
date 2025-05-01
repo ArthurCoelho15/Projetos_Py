@@ -1,0 +1,47 @@
+# Importando bibliotecas que auxiliarão no código
+from datetime import date
+from utils.helper import date_para_str,str_para_date
+
+class Cliente:
+    contador: int = 100
+
+    def __init__(self, nome: str, email: str, cpf: str, data_nascimento: str) -> None:
+        self.__id: int = Cliente.contador
+        self.__nome: str = nome
+        self.__email: str = email
+        self.__cpf: str = cpf
+        self.__data_nascimento: date = str_para_date(data_nascimento)
+        self.__data_cadastro: date = date.today()
+        Cliente.contador += 1
+
+    @property
+    def id(self: object) -> int:
+        return self.__id
+
+    @property
+    def nome(self: object) -> str:
+        return self.__nome
+
+    @property
+    def email(self: object) -> str:
+        return self.__email
+
+    @property
+    def cpf(self: object) -> str:
+        return self.__cpf
+
+    @property
+    def data_nascimento(self: object) -> str:
+        return date_para_str(self.__data_nascimento)
+
+    @property
+    def data_cadastro(self: object) -> str:
+        return date_para_str(self.data_cadastro)
+
+    def __str__(self: object) -> str:
+        return (f'Código: {self.id}\n'
+                f'Nome: {self.nome}\n'
+                f'Email: {self.email}\n'
+                f'Cpf: {self.cpf}\n'
+                f'Data de nascimento: {self.data_nascimento}\n'
+                f'Data de cadastro: {self.data_cadastro}')
