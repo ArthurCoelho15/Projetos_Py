@@ -68,11 +68,14 @@ class Conta:
 
     def sacar(self: object, valor: float) -> None:
         """
-        calcularemos se há saldo na conta corrente + limite para a transação, caso houver, veremos se temos saldo suficiente
-        na conta-corrente. Teremos duas situações:
 
-        1º Saldo OK na conta-corrente: abateremos o valor da conta-corrente sem alterar o limite de crédito
-        2º Saldo NOK na conta-correte: abateremos o valor total da conta corrente e o restante abaterá no limite de crédito
+            * Saca um valor fornecido pelo usuário na conta *
+
+            calcularemos se há saldo na conta corrente + limite para a transação, caso houver, veremos se temos saldo suficiente
+            na conta-corrente. Teremos duas situações:
+
+            1º Saldo OK na conta-corrente: abateremos o valor da conta-corrente sem alterar o limite de crédito
+            2º Saldo NOK na conta-correte: abateremos o valor total da conta corrente e o restante abaterá no limite de crédito
 
         """
         if valor > 0 and self.saldo_disponivel >= valor:
@@ -90,13 +93,16 @@ class Conta:
 
     def transferir(self: object, destino: object, valor: float) -> None:
         """
-        self está relacionado com a conta de origem, destino a conta de destino, valor com o valor da transação.
 
-        calcularemos se há saldo na conta corrente + limite para a transação, caso houver, veremos se temos saldo suficiente
-        na conta-corrente. Teremos duas situações:
+            * Transfere um valor fornecido pelo usuário de uma conta de origem para um conta de destino *
 
-        1º Saldo OK na conta-corrente: abateremos o valor da conta-corrente sem alterar o limite de crédito
-        2º Saldo NOK na conta-correte: abateremos o valor total da conta corrente e o restante abaterá no limite de crédito
+            self está relacionado com a conta de origem, destino a conta de destino, valor com o valor da transação.
+
+            calcularemos se há saldo na conta corrente + limite para a transação, caso houver, veremos se temos saldo suficiente
+            na conta-corrente. Teremos duas situações:
+
+            1º Saldo OK na conta-corrente: abateremos o valor da conta-corrente sem alterar o limite de crédito
+            2º Saldo NOK na conta-correte: abateremos o valor total da conta corrente e o restante abaterá no limite de crédito
 
         """
         if valor > 0 and self.saldo_disponivel >= valor:
